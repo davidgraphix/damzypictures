@@ -1,15 +1,11 @@
 "use client"
 
 import type React from "react"
-
 import { useState, useRef } from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Phone, Mail, MessageCircle, Send } from "lucide-react"
-import emailjs from "@emailjs/browser"
-
-// Initialize EmailJS with your public key
-emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "")
+import { sendContactEmail } from "./actions"
 
 interface FormData {
   name: string
@@ -46,25 +42,9 @@ export default function ContactPage() {
     setError("")
 
     try {
-      // Use a generic template that works with any form structure
-      const templateParams = {
-        to_email: "damzypictures@gmail.com",
-        from_name: formData.name,
-        from_email: formData.email,
-        phone: formData.phone,
-        service: formData.service,
-        message: formData.message,
-      }
+      const result = await sendContactEmail(formData)
 
-      // Using emailjs with template ID
-      const result = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_damzy",
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_damzy",
-        templateParams,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
-      )
-
-      if (result.status === 200) {
+      if (result.success) {
         setSubmitted(true)
         setFormData({
           name: "",
@@ -76,6 +56,8 @@ export default function ContactPage() {
 
         // Reset submitted state after 5 seconds
         setTimeout(() => setSubmitted(false), 5000)
+      } else {
+        setError(result.message)
       }
     } catch (err) {
       console.error("Error sending email:", err)
