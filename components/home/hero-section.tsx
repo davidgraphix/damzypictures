@@ -10,7 +10,7 @@ export default function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/cinematic-photography-studio-hero-image.jpg"
+          src="/bg2.jpeg"
           alt="Cinematic photography hero"
           fill
           className="object-cover opacity-40"

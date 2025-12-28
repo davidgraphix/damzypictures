@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -29,7 +30,7 @@ export default function Navigation() {
   return (
     <motion.nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-md" : "bg-transparent"
+        isScrolled ? "bg-black/80 shadow-md" : "bg-black/92"
       }`}
       initial={{ y: 0 }}
       animate={{ y: 0 }}
@@ -39,8 +40,8 @@ export default function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <motion.div className="text-2xl md:text-3xl font-bold tracking-tight" whileHover={{ scale: 1.05 }}>
-              <span className="text-foreground">Damzy</span>
-              <span className="text-accent">Pictures</span>
+           
+              <Image src="/logo1.PNG" alt="DamzyPictures Logo" width={120} height={120} />
             </motion.div>
           </Link>
 
@@ -50,7 +51,7 @@ export default function Navigation() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-foreground hover:text-accent transition-colors duration-200 font-medium text-sm"
+                className="text-background hover:text-accent transition-colors duration-200 font-medium text-sm"
               >
                 {item.label}
               </Link>
@@ -76,7 +77,7 @@ export default function Navigation() {
         {/* Mobile Navigation */}
         {isOpen && (
           <motion.div
-            className="md:hidden bg-white border-t border-border"
+            className="md:hidden bg-black/80 border-t border-border"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
