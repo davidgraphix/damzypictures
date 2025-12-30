@@ -29,10 +29,10 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="relative h-96 md:h-screen w-full overflow-hidden bg-foreground pt-20">
         <Image
-          src="/about-hero-damzy-pictures.jpg"
+          src="/bg4.jpeg"
           alt="About DamzyPictures"
           fill
-          className="object-cover opacity-30"
+          className="object-cover opacity-20"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-r from-foreground via-foreground/50 to-transparent" />

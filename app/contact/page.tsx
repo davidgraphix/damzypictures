@@ -72,7 +72,7 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="relative h-96 md:h-96 w-full overflow-hidden bg-foreground">
         <Image
-          src="/contact-hero-damzy-pictures.jpg"
+          src="/bg6.jpeg"
           alt="Contact Us"
           fill
           className="object-cover opacity-30"

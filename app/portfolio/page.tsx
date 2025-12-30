@@ -107,7 +107,7 @@ export default function PortfolioPage() {
       {/* Hero Section */}
       <section className="relative h-96 md:h-96 w-full overflow-hidden bg-foreground">
         <Image
-          src="/portfolio-hero-damzy-pictures.jpg"
+          src="/bg5.jpg" 
           alt="Our Portfolio"
           fill
           className="object-cover opacity-30"
