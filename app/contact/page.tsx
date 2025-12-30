@@ -375,9 +375,9 @@ export default function ContactPage() {
 
           <div className="space-y-4">
             {[
-              {
+    {
                 q: "What is your turnaround time?",
-                a: "We deliver within 24-48hrs after event. T&C applied",
+                a: "Standard turnaround is 2-3 weeks. We also deliver 24-48hrs after event, Terms and conditions applied. Rush orders available upon request with additional fees.",
               },
               {
                 q: "Do you offer post-event editing?",
@@ -385,7 +385,7 @@ export default function ContactPage() {
               },
               {
                 q: "What are your payment terms?",
-                a: "We require a 70% advance payment and 30% balance within 24-48hrs after event.",
+                a: "We require a 70% deposit to confirm booking, with the balance due within 24-48hrs after event.",
               },
               {
                 q: "Can you travel for events?",

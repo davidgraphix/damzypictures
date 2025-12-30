@@ -72,7 +72,7 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Follow Us</h4>
             <div className="flex gap-4">
               <a
-                href="https://instagram.com/damzypictures"
+                href="https://www.instagram.com/damzy_pictures?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-accent hover:bg-opacity-90 text-accent-foreground p-3 rounded transition-all"
