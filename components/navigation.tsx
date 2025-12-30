@@ -87,7 +87,7 @@ export default function Navigation() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-foreground hover:text-accent transition-colors font-medium"
+                  className="text-background hover:text-accent transition-colors font-medium"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}

@@ -251,10 +251,10 @@ export default function PortfolioPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             {[
-              { number: "500+", label: "Projects Completed" },
-              { number: "1000+", label: "Happy Clients" },
-              { number: "10+", label: "Years Experience" },
-              { number: "50+", label: "Awards Won" },
+              { number: "200+", label: "Projects Completed" },
+              { number: "500+", label: "Happy Clients" },
+              { number: "7+", label: "Years Experience" },
+              { number: "10+", label: "Awards Won" },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
