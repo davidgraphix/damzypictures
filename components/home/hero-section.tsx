@@ -35,7 +35,7 @@ export default function HeroSection() {
           >
             Capturing Moments with
             <br />
-            <span className="text-accent">Authenticity, Clarity & Class</span>
+            <span className="text-accent">Authenticity, Clarity & Excellence</span>
           </motion.h1>
 
           <motion.p
