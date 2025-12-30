@@ -87,6 +87,15 @@ export default function Footer() {
               >
                 <MessageCircle size={20} />
               </a>
+               <a
+                href="
+2. https://www.instagram.com/damzyshotit?igsh=ZnlxYXFqNDluc3c2&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-accent hover:bg-opacity-90 text-accent-foreground p-3 rounded transition-all"
+              >
+                <Instagram size={20} />
+              </a>
             </div>
           </div>
         </div>
