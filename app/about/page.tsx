@@ -33,7 +33,7 @@ export default function AboutPage() {
 
     return (
       <p className="text-lg text-gray-600 leading-relaxed">
-        Ayeni Damilare J., fondly known as Damzy, is a visionary creative and
+        Ayeni Damilare Joshua., fondly known as Damzy, is a visionary creative and
         passionate storyteller committed to capturing life as it happens real,
         emotional, meaningful, and unforgettable. As the Creative Director of
         DamzyPictures, he leads with purpose, excellence, and a deep belief that
