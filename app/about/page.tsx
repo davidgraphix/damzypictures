@@ -1,14 +1,16 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import Image from "next/image"
-import Link from "next/link"
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function AboutPage() {
   const values = [
     {
       title: "Authenticity",
-      description: "Genuine storytelling that captures real emotions and moments",
+      description:
+        "Genuine storytelling that captures real emotions and moments",
     },
     {
       title: "Clarity",
@@ -22,7 +24,54 @@ export default function AboutPage() {
       title: "Creativity",
       description: "Innovative approaches to every project we undertake",
     },
-  ]
+  ];
+
+  ("use client");
+
+  function AboutText() {
+    const [expanded, setExpanded] = useState(false);
+
+    return (
+      <p className="text-lg text-gray-600 leading-relaxed">
+        Ayeni Damilare J., fondly known as Damzy, is a visionary creative and
+        passionate storyteller committed to capturing life as it happens real,
+        emotional, meaningful, and unforgettable. As the Creative Director of
+        DamzyPictures, he leads with purpose, excellence, and a deep belief that
+        every moment has a story worth preserving.
+        {/* Hidden / expandable content */}
+        {expanded && (
+          <span className="block mt-4">
+            Driven by creativity and guided by discipline, Ayeni Damilare has
+            built a brand that is committed to excellence, professionalism, and
+            creativity in photography, videography, & event documentation as
+            well as trust reflects dedication, quality, and a brand. His work
+            goes beyond holding a camera; it is about creating experiences,
+            documenting journeys, celebrating people, and building memories that
+            stand the test of time. From intimate celebrations to large events,
+            lifestyle shoots, and corporate projects, he approaches every story
+            with intention, creativity, and heart. Ayeni Damilare is a student
+            of the University of Lagos, under the Department of Employment
+            Relations and Human Resource Management, where his academic journey
+            continues to shape his leadership, strategic thinking,
+            professionalism, and strong understanding of business and brand
+            excellence. These qualities reflect in how he manages projects,
+            leads his team, and delivers value to every client. With a clear
+            vision to inspire, impact, and redefine visual storytelling, Ayeni
+            Damilare remains committed to growth, excellence, and creating
+            timeless work through Damzy Pictures — one moment, one frame, one
+            story at a time.
+          </span>
+        )}
+        {/* Toggle button */}
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="mt-4 block text-primary font-medium hover:underline"
+        >
+          {expanded ? "Show less" : "Read more"}
+        </button>
+      </p>
+    );
+  }
 
   return (
     <main className="pt-20">
@@ -65,26 +114,33 @@ export default function AboutPage() {
             viewport={{ once: true }}
           >
             <div>
-              <p className="text-accent font-semibold text-sm tracking-wider mb-4">WHO WE ARE</p>
+              <p className="text-accent font-semibold text-sm tracking-wider mb-4">
+                WHO WE ARE
+              </p>
               <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                 Damzy Pictures: Creative Visual Storytelling
               </h2>
 
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                Damzy Pictures is a creative media and visual storytelling brand dedicated to capturing moments with
-                authenticity, clarity, and class. We specialize in photography, videography, live
-                streaming/broadcasting, event documentation, and digital content creation.
+                Damzy Pictures is a creative media and visual storytelling brand
+                dedicated to capturing moments with authenticity, clarity, and
+                class. We specialize in photography, videography, live
+                streaming/broadcasting, event documentation, and digital content
+                creation.
               </p>
 
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                Founded with a passion for visual excellence, we believe that every moment deserves to be captured with
-                intention and artistry. Our team combines technical expertise with creative vision to deliver content
-                that tells your story in the most compelling way possible.
+                Founded with a passion for visual excellence, we believe that
+                every moment deserves to be captured with intention and
+                artistry. Our team combines technical expertise with creative
+                vision to deliver content that tells your story in the most
+                compelling way possible.
               </p>
 
               <p className="text-lg text-gray-600 leading-relaxed">
-                Whether you're planning a wedding, launching a brand, hosting a corporate event, or creating digital
-                content, we bring professionalism, creativity, and dedication to every project.
+                Whether you're planning a wedding, launching a brand, hosting a
+                corporate event, or creating digital content, we bring
+                professionalism, creativity, and dedication to every project.
               </p>
             </div>
           </motion.div>
@@ -115,10 +171,13 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-bold text-foreground mb-4">Our Mission</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">
+                Our Mission
+              </h3>
               <p className="text-gray-600 leading-relaxed">
-                To deliver visually compelling stories that connect emotionally and leave lasting impressions on
-                audiences through professional, creative, and reliable media services.
+                To deliver visually compelling stories that connect emotionally
+                and leave lasting impressions on audiences through professional,
+                creative, and reliable media services.
               </p>
             </motion.div>
 
@@ -130,10 +189,13 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-bold text-foreground mb-4">Our Vision</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">
+                Our Vision
+              </h3>
               <p className="text-gray-600 leading-relaxed">
-                To be the preferred creative media partner for individuals and brands seeking to tell their stories with
-                authenticity, clarity, and class.
+                To be the preferred creative media partner for individuals and
+                brands seeking to tell their stories with authenticity, clarity,
+                and class.
               </p>
             </motion.div>
 
@@ -145,7 +207,9 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-bold text-foreground mb-4">Our Values</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">
+                Our Values
+              </h3>
               <ul className="space-y-2 text-gray-600">
                 <li>✓ Authenticity in storytelling</li>
                 <li>✓ Clarity in execution</li>
@@ -167,8 +231,12 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <p className="text-accent font-semibold text-sm tracking-wider mb-2">WHAT GUIDES US</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">Our Core Values</h2>
+            <p className="text-accent font-semibold text-sm tracking-wider mb-2">
+              WHAT GUIDES US
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+              Our Core Values
+            </h2>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-12">
@@ -185,8 +253,12 @@ export default function AboutPage() {
                   {index + 1}
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-foreground mb-2">{value.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                  <h3 className="text-2xl font-bold text-foreground mb-2">
+                    {value.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {value.description}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -194,8 +266,54 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Highlights */}
+      {/* Directr Highlights */}
       <section className="py-20 px-4 md:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="grid md:grid-cols-2 gap-12 items-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <motion.div
+              className="relative h-96 md:h-full min-h-96 rounded overflow-hidden order-2 md:order-1"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <Image
+                src="/damzy.jpg"
+                alt="Damzy Pictures Creative Director"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+
+            <motion.div
+              className="space-y-6 order-1 md:order-2"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <div>
+                <p className="text-accent font-semibold text-sm tracking-wider mb-2">
+                  Damzy Pictures Creative Director
+                </p>
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+                  Visionary creative and passionate{" "}
+                  <span className="text-accent">storyteller</span>
+                </h2>
+              </div>
+              <AboutText />
+              <br /> <br />
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Team Highlights */}
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="grid md:grid-cols-2 gap-12 items-center"
@@ -227,16 +345,21 @@ export default function AboutPage() {
               viewport={{ once: true }}
             >
               <div>
-                <p className="text-accent font-semibold text-sm tracking-wider mb-2">OUR TEAM</p>
+                <p className="text-accent font-semibold text-sm tracking-wider mb-2">
+                  OUR TEAM
+                </p>
                 <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-                  Creative Professionals Dedicated to <span className="text-accent">Excellence</span>
+                  Creative Professionals Dedicated to{" "}
+                  <span className="text-accent">Excellence</span>
                 </h2>
               </div>
 
               <p className="text-lg text-gray-600 leading-relaxed">
-                Our team consists of experienced photographers, videographers, and content creators who are passionate
-                about visual storytelling. With years of experience across various industries, we understand what it
-                takes to deliver exceptional results.
+                Our team consists of experienced photographers, videographers,
+                and content creators who are passionate about visual
+                storytelling. With years of experience across various
+                industries, we understand what it takes to deliver exceptional
+                results.
               </p>
 
               <ul className="space-y-3">
@@ -276,7 +399,9 @@ export default function AboutPage() {
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               Ready to Tell Your <span className="text-accent">Story?</span>
             </h2>
-            <p className="text-lg text-gray-300 mb-8">Let's collaborate and create something extraordinary together.</p>
+            <p className="text-lg text-gray-300 mb-8">
+              Let's collaborate and create something extraordinary together.
+            </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -296,5 +421,5 @@ export default function AboutPage() {
         </div>
       </section>
     </main>
-  )
+  );
 }
