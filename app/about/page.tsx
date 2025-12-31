@@ -285,9 +285,10 @@ export default function AboutPage() {
               viewport={{ once: true }}
             >
               <Image
-                src="/damzy.jpg"
+                src="/damzy.jpeg"
                 alt="Damzy Pictures Creative Director"
-                fill
+               width={500}
+               height={200}
                 className="object-cover"
               />
             </motion.div>
@@ -309,9 +310,9 @@ export default function AboutPage() {
                 </h2>
               </div>
               <AboutText />
-              <br /> <br />
             </motion.div>
           </motion.div>
+           <br /> <br /> <br /> <br /> <br />
         </div>
 
         {/* Team Highlights */}
