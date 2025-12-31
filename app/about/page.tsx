@@ -49,13 +49,14 @@ export default function AboutPage() {
             documenting journeys, celebrating people, and building memories that
             stand the test of time. From intimate celebrations to large events,
             lifestyle shoots, and corporate projects, he approaches every story
-            with intention, creativity, and heart. Ayeni Damilare is a student
+            with intention, creativity, and heart. <br />  <br />
+             Ayeni Damilare is a student
             of the University of Lagos, under the Department of Employment
             Relations and Human Resource Management, where his academic journey
             continues to shape his leadership, strategic thinking,
             professionalism, and strong understanding of business and brand
             excellence. These qualities reflect in how he manages projects,
-            leads his team, and delivers value to every client. With a clear
+            leads his team, and delivers value to every client. <br /> <br /> With a clear
             vision to inspire, impact, and redefine visual storytelling, Ayeni
             Damilare remains committed to growth, excellence, and creating
             timeless work through Damzy Pictures — one moment, one frame, one
