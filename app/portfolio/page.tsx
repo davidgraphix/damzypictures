@@ -56,39 +56,47 @@ const portfolioItems = [
     image: "/portfolio-wedding-reception.jpg",
     description: "Candid moments of joy and celebration",
   },
-  {
+
+    {
     id: 8,
+    title: "Social event coverage",
+    category: "Social Events",
+    image: "/portfolio-social-event.jpg",
+    description: "Vibrant coverage of social gatherings and parties",
+  },
+  {
+    id: 9,
     title: "Brand Commercial Video",
     category: "Documentaries",
     image: "/portfolio-brand-commercial.jpg",
     description: "Compelling visual narrative for brand promotion",
   },
   {
-    id: 9,
+    id: 10,
     title: "Real Estate Showcase",
     category: "Corporate",
     image: "/portfolio-real-estate-showcase.jpg",
     description: "Professional property photography and tour",
   },
   {
-    id: 10,
+    id: 11,
     title: "Festival Live Coverage",
     category: "Lifestyle",
     image: "/portfolio-festival-live.jpg",
     description: "Energetic coverage of cultural events",
   },
   {
-    id: 11,
+    id: 12,
     title: "Studio Portrait Session",
     category: "Studio Shoots",
     image: "/portfolio-studio-portrait.jpg",
     description: "Professional headshots and portraits",
   },
   {
-    id: 12,
+    id: 13,
     title: "Concert Live Streaming",
     category: "Documentaries",
-    image: "/portfolio-concert-live.jpg",
+    image: "/portfolio-concert-live.jpeg",
     description: "Professional live streaming and production",
   },
 ]
