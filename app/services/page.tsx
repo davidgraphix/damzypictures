@@ -12,7 +12,7 @@ const services = [
     title: "Photography",
     description: "Capture life's most beautiful moments with professional photography services",
     features: ["Event Photography", "Studio Portraits", "Product Photography", "Lifestyle Photography"],
-    image: "/photography-service-showcase.jpg",
+    image: "/photography-service-img.jpg",
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const services = [
     title: "Videography",
     description: "Cinematic video production that brings your story to life",
     features: ["Event Videography", "Commercial Videos", "Promotional Content", "Music Videos"],
-    image: "/videography-service-showcase.jpg",
+    image: "/videography-service-showcase.jpg.jpg",
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const services = [
     title: "Live Streaming & Broadcasting",
     description: "Professional live streaming for events, conferences, and online content",
     features: ["Event Live Streaming", "Online Broadcasting", "Multi-camera Setup", "Real-time Editing"],
-    image: "/live-streaming-service-showcase.jpg",
+    image: "/portfolio-concert-live.jpeg",
   },
   {
     id: 4,
