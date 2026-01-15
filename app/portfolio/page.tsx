@@ -7,44 +7,50 @@ import Link from "next/link"
 import { X, ZoomIn } from "lucide-react"
 
 const portfolioItems = [
-
   {
     id: 1,
+    title: "Elegant Wedding Ceremony",
+    category: "Weddings",
+    image: "/portfolio-wedding-elegant.jpg",
+    description: "Capturing the most important day with cinematic perfection",
+  },
+  {
+    id: 2,
     title: "Corporate Summit ",
     category: "Corporate",
     image: "/portfolio-corporate-summit.jpg",
     description: "Professional event coverage for 500+ attendees",
   },
   {
-    id: 2,
+    id: 3,
     title: "Fashion Brand Lookbook",
     category: "Studio Shoots",
     image: "/portfolio-fashion-lookbook.jpg",
     description: "High-end fashion photography and styling",
   },
   {
-    id: 3,
+    id: 4,
     title: "Sports and Entertainment Documentary",
     category: "Documentaries",
     image: "/portfolio-documentary-sports.jpg",
     description: "In-depth storytelling of athletes and entertainers",
   },
   {
-    id: 4,
+    id: 5,
     title: "Lifestyle Campaign",
     category: "Lifestyle",
     image: "/portfolio-lifestyle-campaign.jpg",
     description: "Authentic moments captured with artistic vision",
   },
   {
-    id: 5,
+    id: 6,
     title: "Product Photography Series",
     category: "Studio Shoots",
     image: "/portfolio-product-photography.jpg",
     description: "Professional product showcase for e-commerce",
   },
   {
-    id: 6,
+    id: 7,
     title: "Wedding Reception Dance",
     category: "Weddings",
     image: "/portfolio-wedding-reception.jpg",
@@ -52,46 +58,53 @@ const portfolioItems = [
   },
 
     {
-    id: 7,
+    id: 8,
     title: "Social event coverage",
     category: "Social Events",
     image: "/portfolio-social-event.jpg",
     description: "Vibrant coverage of social gatherings and parties",
   },
   {
-    id: 8,
+    id: 9,
     title: "Brand Commercial Video",
     category: "Documentaries",
     image: "/portfolio-brand-commercial.jpg",
     description: "Compelling visual narrative for brand promotion",
   },
   {
-    id: 9,
+    id: 10,
     title: "Educational Event Shoot",
     category: "Corporate",
     image: "/portfolio-educational-event.jpg",
     description: "Capturing key moments from seminars and Educational insights",
   },
   {
-    id: 10,
+    id: 11,
     title: "Festival Live Coverage",
     category: "Lifestyle",
     image: "/portfolio-festival-live.jpg",
     description: "Energetic coverage of cultural events",
   },
   {
-    id: 11,
+    id: 12,
     title: "Studio Portrait Session",
     category: "Studio Shoots",
     image: "/portfolio-studio-portrait.jpg",
     description: "Professional headshots and portraits",
   },
   {
-    id: 12,
+    id: 13,
     title: "Concert Live Streaming",
     category: "Documentaries",
     image: "/portfolio-concert-live.jpeg",
     description: "Professional live streaming and production",
+  },
+    {
+    id: 14,
+    title: "Portrait wedding Photography",
+    category: "Weddings",
+    image: "/portfolio-wedding-portrait.jpg",
+    description: "Timeless portraits capturing love and connection",
   },
 ]
 
