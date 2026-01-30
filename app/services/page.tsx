@@ -44,7 +44,7 @@ const services = [
     title: "Drone Services",
     description: "Aerial photography and videography for unique perspectives",
     features: ["Aerial Photography", "Drone Videography", "Property Tours", "Event Coverage"],
-    image: "/drone-service-showcase.jpg",
+    image: "/drone-service-showcase.jpeg",
   },
   {
     id: 6,

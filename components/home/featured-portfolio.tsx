@@ -9,25 +9,25 @@ const featured = [
     id: 1,
     title: "Wedding Ceremony",
     category: "Weddings",
-    image: "/wedding-photography-ceremony.jpg",
+    image: "/portfolio-wedding-portrait.jpg",
   },
   {
     id: 2,
     title: "Studio Portrait",
     category: "Studio Shoots",
-    image: "/professional-studio-portrait.jpg",
+    image: "/portfolio-studio-portrait.jpg",
   },
   {
     id: 3,
     title: "Corporate Event",
     category: "Corporate",
-    image: "/corporate-event-photography.jpg",
+    image: "/portfolio-corporate-summit.jpg",
   },
   {
     id: 4,
     title: "Documentary",
     category: "Documentaries",
-    image: "/documentary-photography-storytelling.jpg",
+    image: "/portfolio-documentary-sports.jpg",
   },
 ]
 
