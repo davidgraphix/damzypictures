@@ -332,7 +332,7 @@ export default function AboutPage() {
               viewport={{ once: true }}
             >
               <Image
-                src="/team-collaboration-creative-workspace.jpg"
+                src="/team-picture.png"
                 alt="Team at work"
                 fill
                 className="object-cover"
