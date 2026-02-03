@@ -17,7 +17,7 @@ export default function AboutSnapshot() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Image src="/team-picture.png" alt="DamzyPictures team" fill className="object-cover" />
+            <Image src="/damzy-team.png" alt="DamzyPictures team" fill className="object-cover" />
           </motion.div>
 
           {/* Content */}
