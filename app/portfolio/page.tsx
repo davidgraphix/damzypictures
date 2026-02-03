@@ -11,14 +11,14 @@ const portfolioItems = [
     id: 1,
     title: "Elegant Wedding Ceremony",
     category: "Weddings",
-    image: "/portfolio-wedding-elegant.jpg",
+    image: "/elegant-wedding.jpeg",
     description: "Capturing the most important day with cinematic perfection",
   },
   {
     id: 2,
     title: "Corporate Summit ",
     category: "Corporate",
-    image: "/portfolio-corporate-summit.jpg",
+    image: "/cooperate-summit.jpeg",
     description: "Professional event coverage for 500+ attendees",
   },
   {
