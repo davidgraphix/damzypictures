@@ -106,6 +106,13 @@ const portfolioItems = [
     image: "/portfolio-wedding-portrait.jpg",
     description: "Timeless portraits capturing love and connection",
   },
+  {
+    id: 15,
+    title: "Convocation",
+    category: "Weddings",
+    image: "/convocation.jpeg",
+    description: "Professional Convocation Portrait",
+  },
 ]
 
 export default function PortfolioPage() {
