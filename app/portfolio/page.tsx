@@ -109,7 +109,7 @@ const portfolioItems = [
   {
     id: 15,
     title: "Convocation",
-    category: "Weddings",
+    category: "Studio Shoots",
     image: "/convocation.jpeg",
     description: "Professional Convocation Portrait",
   },
