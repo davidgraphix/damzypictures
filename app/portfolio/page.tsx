@@ -113,6 +113,13 @@ const portfolioItems = [
     image: "/convocation.jpeg",
     description: "Professional Convocation Portrait",
   },
+    {
+    id: 16,
+    title: "Wedding Portrait",
+    category: "Weddings",
+    image: "/wedding2.jpeg",
+    description: "Professional Wedding Portrait",
+  },
 ]
 
 export default function PortfolioPage() {
