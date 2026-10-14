@@ -1,21 +1,21 @@
-"use client"
 import HeroSection from "@/components/home/hero-section"
 import AboutSnapshot from "@/components/home/about-snapshot"
 import ServicesOverview from "@/components/home/services-overview"
 import FeaturedPortfolio from "@/components/home/featured-portfolio"
 import WhyChooseUs from "@/components/home/why-choose-us"
-import TestimonialsSection from "@/components/home/testimonials-section"
 import CTABanner from "@/components/home/cta-banner"
+
+// TestimonialsSection (components/home/testimonials-section.tsx) is intentionally not rendered:
+// its quotes and names could not be verified as real clients. Re-add it here once they are.
 
 export default function Home() {
   return (
     <main>
       <HeroSection />
       <AboutSnapshot />
-      <ServicesOverview />
       <FeaturedPortfolio />
+      <ServicesOverview />
       <WhyChooseUs />
-      <TestimonialsSection />
       <CTABanner />
     </main>
   )

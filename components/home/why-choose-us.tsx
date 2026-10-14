@@ -1,8 +1,5 @@
-"use client"
-
-import { motion } from "framer-motion"
-import { CheckCircle } from "lucide-react"
 import Image from "next/image"
+import Reveal from "@/components/ui/reveal"
 
 const reasons = [
   {
@@ -25,49 +22,38 @@ const reasons = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-20 px-4 md:px-8 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-accent font-semibold text-sm tracking-wider mb-2">WHY CHOOSE</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8">DamzyPictures</h2>
+    <section className="relative overflow-hidden bg-navy text-paper" aria-labelledby="why-heading">
+      <div className="grid lg:grid-cols-2">
+        <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-full">
+          <Image
+            src="/portfolio-wedding-reception.jpg"
+            alt="Guest in a flowing gold gown dancing at a wedding reception"
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover object-[35%_15%]"
+          />
+          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent lg:bg-gradient-to-l" />
+        </div>
 
-            <div className="space-y-6">
-              {reasons.map((reason, index) => (
-                <motion.div
-                  key={reason.title}
-                  className="flex gap-4"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <CheckCircle className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-bold text-foreground mb-1">{reason.title}</h3>
-                    <p className="text-gray-600">{reason.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+        <div className="section-y px-4 sm:px-6 lg:px-16 xl:px-24">
+          <Reveal>
+            <p className="eyebrow text-gold-soft">Why DamzyPictures</p>
+            <h2 id="why-heading" className="display-lg mt-5 max-w-xl">
+              Trusted with the moments that only happen once.
+            </h2>
+          </Reveal>
 
-          {/* Image */}
-          <motion.div
-            className="relative h-96 md:h-full min-h-96 rounded overflow-hidden"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <Image src="/creative-team-collaboration-photography.jpg" alt="Why choose us" fill className="object-cover" />
-          </motion.div>
+          <dl className="mt-14 grid gap-x-10 gap-y-10 sm:grid-cols-2">
+            {reasons.map((r, i) => (
+              <Reveal key={r.title} delay={i * 0.08} className="border-t border-gold/40 pt-6">
+                <dt className="flex items-baseline gap-4">
+                  <span className="eyebrow text-gold-soft">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="font-display text-2xl md:text-[1.75rem]">{r.title}</span>
+                </dt>
+                <dd className="mt-3 text-[0.95rem] leading-relaxed text-white/70">{r.description}</dd>
+              </Reveal>
+            ))}
+          </dl>
         </div>
       </div>
     </section>

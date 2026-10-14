@@ -9,7 +9,7 @@ declare module '@emailjs/browser' {
   export function send(
     serviceID: string,
     templateID: string,
-    templateParams?: Record<string, any>,
+    templateParams?: Record<string, unknown>,
     userId?: string,
   ): Promise<SendResult>;
 

@@ -1,89 +1,82 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { Camera, Video, Radio, Sparkles, Bone as Drone, Layers } from "lucide-react"
+import { useState } from "react"
+import Image from "next/image"
 import Link from "next/link"
-
-const services = [
-  {
-    icon: Camera,
-    title: "Photography",
-    description: "Professional photography for events, studios, corporate, lifestyle, and special moments",
-  },
-  {
-    icon: Video,
-    title: "Videography",
-    description: "Cinematic video production capturing your story with visual excellence",
-  },
-  {
-    icon: Radio,
-    title: "Live Streaming",
-    description: "Professional live streaming and broadcasting for events and online content",
-  },
-  {
-    icon: Sparkles,
-    title: "Content Creation",
-    description: "Digital content production tailored to your brand and platform",
-  },
-  {
-    icon: Drone,
-    title: "Drone Services",
-    description: "Aerial photography and videography for unique perspectives",
-  },
-  {
-    icon: Layers,
-    title: "Multimedia",
-    description: "Comprehensive multimedia solutions for all your creative needs",
-  },
-]
+import { ArrowUpRight } from "lucide-react"
+import Reveal from "@/components/ui/reveal"
+import { services } from "@/lib/site"
 
 export default function ServicesOverview() {
+  const [active, setActive] = useState(0)
+
   return (
-    <section className="py-20 px-4 md:px-8 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <p className="text-accent font-semibold text-sm tracking-wider mb-2">WHAT WE DO</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">Our Services</h2>
-        </motion.div>
+    <section className="section-y bg-paper" aria-labelledby="services-heading">
+      <div className="container-x">
+        <Reveal className="max-w-3xl">
+          <p className="eyebrow text-gold-deep">What we do</p>
+          <h2 id="services-heading" className="display-lg mt-5 text-ink">
+            Six disciplines, one standard of craft.
+          </h2>
+        </Reveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              className="group p-8 bg-background rounded border border-border hover:border-accent hover:shadow-lg transition-all duration-300"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -5 }}
-            >
-              <service.icon className="w-12 h-12 text-accent mb-4 group-hover:scale-110 transition-transform" />
-              <h3 className="text-xl font-bold text-foreground mb-3">{service.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
-            </motion.div>
-          ))}
+        <div className="mt-16 grid gap-12 lg:mt-24 lg:grid-cols-12 lg:gap-16">
+          {/* Sticky preview (desktop) */}
+          <div className="hidden lg:col-span-5 lg:block">
+            <div className="sticky top-[calc(var(--nav-height)+2rem)] aspect-[4/5] overflow-hidden bg-ink">
+              {services.map((s, i) => (
+                <Image
+                  key={s.slug}
+                  src={s.image}
+                  alt={i === active ? s.imageAlt : ""}
+                  aria-hidden={i !== active}
+                  fill
+                  sizes="(min-width: 1024px) 38vw, 1px"
+                  className={`object-cover transition-[opacity,transform] duration-700 ease-[var(--ease-cinematic)] ${
+                    i === active ? "scale-100 opacity-100" : "scale-105 opacity-0"
+                  }`}
+                />
+              ))}
+              <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink/70 to-transparent" />
+              <p className="eyebrow absolute bottom-5 left-5 text-paper">
+                {String(active + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}
+              </p>
+            </div>
+          </div>
+
+          {/* Index */}
+          <ol className="border-t border-line-light lg:col-span-7">
+            {services.map((s, i) => (
+              <li key={s.slug} className="border-b border-line-light">
+                <Link
+                  href={`/services#${s.slug}`}
+                  onMouseEnter={() => setActive(i)}
+                  onFocus={() => setActive(i)}
+                  className="group grid grid-cols-[auto_1fr_auto] items-start gap-x-5 gap-y-3 py-7 sm:gap-x-8 md:py-9"
+                >
+                  <span className="eyebrow pt-2 text-stone md:pt-3">{String(i + 1).padStart(2, "0")}</span>
+                  <span>
+                    <span
+                      className={`block font-display text-[1.9rem] leading-[1.05] transition-colors duration-300 md:text-[2.6rem] ${
+                        active === i ? "lg:text-ink" : "lg:text-ink/55"
+                      } text-ink group-hover:text-ink`}
+                    >
+                      {s.title}
+                    </span>
+                    <span className="mt-3 block max-w-md text-[0.95rem] leading-relaxed text-stone">{s.short}</span>
+                  </span>
+                  <span className="relative mt-1 size-16 shrink-0 overflow-hidden sm:size-20 lg:size-auto lg:overflow-visible">
+                    <Image src={s.image} alt="" fill sizes="80px" className="object-cover lg:hidden" />
+                    <ArrowUpRight
+                      aria-hidden="true"
+                      className="hidden size-6 text-gold-deep transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 lg:block"
+                    />
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ol>
         </div>
-
-        <motion.div
-          className="text-center mt-12"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <Link
-            href="/services"
-            className="inline-block px-8 py-3 bg-accent text-accent-foreground rounded hover:opacity-90 transition-opacity font-semibold"
-          >
-            Explore All Services
-          </Link>
-        </motion.div>
       </div>
     </section>
   )
