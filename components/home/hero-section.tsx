@@ -8,14 +8,17 @@ export default function HeroSection() {
     <section className="relative isolate overflow-hidden bg-ink text-paper">
       {/* Mobile / tablet: full-bleed portrait behind the copy */}
       <div className="absolute inset-0 -z-10 lg:hidden">
-        <Image
-          src="/portfolio-wedding-portrait.jpg"
-          alt="Bride and groom in matching royal-blue traditional attire"
-          fill
-          preload
-          sizes="(max-width: 1023px) 100vw, 1px"
-          className="animate-slow-zoom object-cover object-[center_25%]"
-        />
+        {/* Lifted so the couple sits above the copy; the uncovered bottom strip falls in the dark gradient */}
+        <div className="absolute inset-x-0 -top-[16%] h-full [@media(max-height:700px)]:-top-[24%]">
+          <Image
+            src="/hero-couple-gold.jpg"
+            alt="Couple in coordinated gold and wine traditional attire, the bride in a gold gele"
+            fill
+            preload
+            sizes="(max-width: 1023px) 100vw, 1px"
+            className="animate-slow-zoom object-cover object-[55%_center]"
+          />
+        </div>
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,10,11,0.35)_0%,rgba(10,10,11,0.05)_22%,rgba(10,10,11,0.72)_48%,rgba(10,10,11,0.94)_70%,#0a0a0b_100%)]"
