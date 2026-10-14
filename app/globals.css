@@ -376,3 +376,49 @@ details > summary::-webkit-details-marker {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--gold);
 }
+
+/* ------------------------------------------------------------------
+   Client logo marquee (homepage)
+   Two identical rows; the track slides by exactly one row width (-50%)
+   for a seamless loop. Reduced motion shows a static, wrapped grid.
+------------------------------------------------------------------- */
+@keyframes logo-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.logo-marquee {
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.logo-track {
+  animation: logo-scroll 45s linear infinite;
+}
+
+.logo-marquee:hover .logo-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee {
+    mask-image: none;
+  }
+  .logo-track {
+    width: 100%;
+    animation: none !important;
+  }
+  .logo-track > .logo-row:first-child {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 2.5rem;
+    padding-inline: 1rem;
+  }
+  .logo-track > .logo-row[aria-hidden="true"] {
+    display: none;
+  }
+}

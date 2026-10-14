@@ -2,6 +2,7 @@ import HeroSection from "@/components/home/hero-section"
 import AboutSnapshot from "@/components/home/about-snapshot"
 import ServicesOverview from "@/components/home/services-overview"
 import FeaturedPortfolio from "@/components/home/featured-portfolio"
+import ClientLogos from "@/components/home/client-logos"
 import WhyChooseUs from "@/components/home/why-choose-us"
 import CTABanner from "@/components/home/cta-banner"
 
@@ -14,6 +15,7 @@ export default function Home() {
       <HeroSection />
       <AboutSnapshot />
       <FeaturedPortfolio />
+      <ClientLogos />
       <ServicesOverview />
       <WhyChooseUs />
       <CTABanner />

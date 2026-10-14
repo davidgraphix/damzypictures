@@ -336,6 +336,32 @@ export const coreValues = [
   },
 ]
 
+export type Client = {
+  name: string
+  logo: string
+  /** Intrinsic pixel size of the logo file. */
+  width: number
+  height: number
+  /** Optional optical-weight adjustment (solid tiles read heavier than outline marks). */
+  weight?: number
+}
+
+// Brands and organisations DamzyPictures has worked with, as supplied by the business.
+// Ordered so similar-looking logos are not next to each other.
+export const clients: Client[] = [
+  { name: "Schneider Electric", logo: "/clients/schneider-electric.png", width: 544, height: 169 },
+  { name: "Seplat Energy", logo: "/clients/seplat.png", width: 328, height: 207 },
+  { name: "Dentons ACAS-Law", logo: "/clients/dentons-acas-law.png", width: 511, height: 74 },
+  { name: "FXTM", logo: "/clients/fxtm.png", width: 598, height: 189 },
+  { name: "Association of International Energy Negotiators (AIEN)", logo: "/clients/aien.png", width: 600, height: 517 },
+  { name: "Vertiv", logo: "/clients/vertiv.png", width: 957, height: 247 },
+  { name: "Haemophilia Hand of Hope Foundation Nigeria", logo: "/clients/haemophilia-hand-of-hope.png", width: 185, height: 222 },
+  { name: "APC by Schneider Electric", logo: "/clients/apc.png", width: 820, height: 398 },
+  { name: "Lauritz Knudsen Electrical & Automation", logo: "/clients/lauritz-knudsen.png", width: 417, height: 222 },
+  { name: "Bolamark Engineering Limited", logo: "/clients/bolamark.png", width: 308, height: 108 },
+  { name: "EventGo2Guys", logo: "/clients/eventgo2guys.png", width: 183, height: 98 },
+]
+
 export const faqs = [
   {
     q: "What is your turnaround time?",
