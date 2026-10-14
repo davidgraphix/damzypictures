@@ -1,58 +1,56 @@
-"use client"
-
-import { motion } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
+import { ArrowRight } from "lucide-react"
+import Reveal from "@/components/ui/reveal"
 
 export default function AboutSnapshot() {
   return (
-    <section className="py-20 px-4 md:px-8 bg-background">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Image */}
-          <motion.div
-            className="relative h-96 md:h-full min-h-96 rounded overflow-hidden"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <Image src="/damzy-team.png" alt="DamzyPictures team" fill className="object-cover" />
-          </motion.div>
+    <section className="section-y bg-ivory">
+      <div className="container-x grid gap-14 lg:grid-cols-12 lg:gap-10">
+        <Reveal className="lg:col-span-3">
+          <p className="eyebrow text-gold-deep">About DamzyPictures</p>
+        </Reveal>
 
-          {/* Content */}
-          <motion.div
-            className="space-y-6"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <div>
-              <p className="text-accent font-semibold text-sm tracking-wider mb-2">ABOUT US</p>
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-                Creative Visual <span className="text-accent">Storytelling</span>
-              </h2>
-            </div>
+        <div className="lg:col-span-9">
+          <Reveal>
+            <h2 className="display-md text-ink">
+              A creative media and visual storytelling brand dedicated to capturing moments with{" "}
+              <em className="italic text-gold-deep">authenticity, clarity and class.</em>
+            </h2>
+          </Reveal>
 
-            <p className="text-gray-600 leading-relaxed text-lg">
-              Damzy Pictures is a creative media and visual storytelling brand dedicated to capturing moments with
-              authenticity, clarity, and class. We specialize in photography, videography, live streaming/broadcasting,
-              event documentation, and digital content creation.
-            </p>
+          <div className="mt-14 grid gap-10 md:grid-cols-12 md:gap-8 lg:mt-20">
+            <Reveal className="relative aspect-[4/5] overflow-hidden md:col-span-5" delay={0.1}>
+              <Image
+                src="/damzy.jpeg"
+                alt="Ayeni Damilare Joshua (Damzy), Creative Director of DamzyPictures"
+                fill
+                sizes="(min-width: 1024px) 28vw, (min-width: 768px) 40vw, 100vw"
+                className="object-cover transition-transform duration-[1.6s] ease-[var(--ease-cinematic)] hover:scale-[1.03]"
+              />
+            </Reveal>
 
-            <p className="text-gray-600 leading-relaxed text-lg">
-              Our mission is to deliver visually compelling stories that connect emotionally and leave lasting
-              impressions on your audience.
-            </p>
-
-            <Link
-              href="/about"
-              className="inline-block px-8 py-3 bg-foreground text-white rounded hover:opacity-90 transition-opacity font-semibold mt-4"
-            >
-              Learn Our Story
-            </Link>
-          </motion.div>
+            <Reveal className="flex flex-col justify-end md:col-span-7 md:pl-6" delay={0.2}>
+              <p className="text-base leading-relaxed text-stone md:text-lg">
+                We specialize in photography, videography, live streaming and broadcasting, event documentation and
+                digital content creation, for couples, families, brands and organisations.
+              </p>
+              <p className="mt-5 text-base leading-relaxed text-stone md:text-lg">
+                Our mission is to deliver high-quality visual content that preserves memories, elevates brands and
+                tells powerful stories with creativity and precision.
+              </p>
+              <Link
+                href="/about"
+                className="group mt-10 inline-flex min-h-11 items-center gap-3 self-start text-sm font-medium uppercase tracking-[0.18em] text-ink"
+              >
+                <span className="link-line">Our story</span>
+                <ArrowRight
+                  aria-hidden="true"
+                  className="size-4 text-gold-deep transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </Link>
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>

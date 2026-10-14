@@ -1,361 +1,263 @@
-"use client"
-
-import { motion } from "framer-motion"
+import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import { Camera, Video, Radio, Sparkles, Bone as Drone, Layers, Check } from "lucide-react"
+import { ArrowRight, Check } from "lucide-react"
+import PageHero from "@/components/ui/page-hero"
+import Reveal from "@/components/ui/reveal"
+import CTASection from "@/components/ui/cta-section"
+import { services, pageMetadata } from "@/lib/site"
 
-const services = [
+export const metadata: Metadata = pageMetadata({
+  title: "Services",
+  description:
+    "Photography, videography, live streaming and broadcasting, content creation, drone services and multimedia production by DamzyPictures.",
+  path: "/services",
+  shareDescription: "Comprehensive creative solutions for all your visual storytelling needs.",
+})
+
+const process = [
   {
-    id: 1,
-    icon: Camera,
-    title: "Photography",
-    description: "Capture life's most beautiful moments with professional photography services",
-    features: ["Event Photography", "Studio Portraits", "Product Photography", "Lifestyle Photography"],
-    image: "/photography-service-img.jpg",
+    step: "01",
+    title: "Consultation",
+    description: "We discuss your vision, goals, and requirements to understand your project",
   },
   {
-    id: 2,
-    icon: Video,
-    title: "Videography",
-    description: "Cinematic video production that brings your story to life",
-    features: ["Event Videography", "Commercial Videos", "Promotional Content", "Music Videos"],
-    image: "/videography-service-showcase.jpg.jpg",
+    step: "02",
+    title: "Planning",
+    description: "Detailed planning and strategy to ensure every detail is covered",
   },
   {
-    id: 3,
-    icon: Radio,
-    title: "Live Streaming & Broadcasting",
-    description: "Professional live streaming for events, conferences, and online content",
-    features: ["Event Live Streaming", "Online Broadcasting", "Multi-camera Setup", "Real-time Editing"],
-    image: "/portfolio-concert-live.jpeg",
+    step: "03",
+    title: "Production",
+    description: "Professional execution with cutting-edge equipment and techniques",
   },
   {
-    id: 4,
-    icon: Sparkles,
-    title: "Content Creation",
-    description: "Digital content tailored for your brand and social media platforms",
-    features: ["Social Media Content", "Blog Photography", "Brand Storytelling", "Behind-the-scenes"],
-    image: "/content-creation-service-showcase.jpg",
+    step: "04",
+    title: "Delivery",
+    description: "Polished final product delivered on time with post-production excellence",
+  },
+]
+
+const packages = [
+  {
+    name: "Starter",
+    description: "Perfect for small projects",
+    features: ["Basic package", "1-2 hours", "Standard editing", "Digital delivery"],
   },
   {
-    id: 5,
-    icon: Drone,
-    title: "Drone Services",
-    description: "Aerial photography and videography for unique perspectives",
-    features: ["Aerial Photography", "Drone Videography", "Property Tours", "Event Coverage"],
-    image: "/drone-service-showcase.jpeg",
+    name: "Professional",
+    description: "Most popular choice",
+    features: ["Full day coverage", "Advanced editing", "Multiple angles", "Fast turnaround"],
+    featured: true,
   },
   {
-    id: 6,
-    icon: Layers,
-    title: "General Multimedia",
-    description: "Comprehensive multimedia solutions for all your creative needs",
-    features: ["3D Rendering", "Animation", "Graphic Design", "Post-production"],
-    image: "/multimedia-service-showcase.jpg",
+    name: "Premium",
+    description: "Complete solution",
+    features: ["Full event coverage", "4K production", "Drone footage", "Premium editing"],
   },
+]
+
+const reasons = [
+  "Professional team with years of experience",
+  "State-of-the-art equipment and technology",
+  "Custom solutions tailored to your needs",
+  "Fast turnaround without compromising quality",
+  "Transparent pricing and clear communication",
+  "Dedicated support throughout your project",
 ]
 
 export default function ServicesPage() {
   return (
-    <main className="pt-20">
-      {/* Hero Section */}
-      <section className="relative h-96 md:h-96 w-full overflow-hidden bg-foreground">
-        <Image src="/bg3.jpeg" alt="Our Services" fill className="object-cover opacity-20" priority />
-        <div className="absolute inset-0 bg-gradient-to-r from-foreground via-foreground/50 to-transparent" />
+    <main>
+      <PageHero
+        eyebrow="Services"
+        title={
+          <>
+            Six disciplines. <em className="italic text-gold-soft">One standard of craft.</em>
+          </>
+        }
+        intro="Comprehensive creative solutions for all your visual storytelling needs, from a single portrait to a fully broadcast event."
+        image="/drone-service-showcase.jpeg"
+        imageAlt="Aerial drone view of a crowded beach meeting turquoise water"
+      >
+        <nav aria-label="Services on this page">
+          <ul className="flex flex-wrap gap-2">
+            {services.map((s) => (
+              <li key={s.slug}>
+                <a
+                  href={`#${s.slug}`}
+                  className="inline-flex min-h-10 items-center border border-white/25 px-4 text-[0.7rem] uppercase tracking-[0.18em] text-white/80 transition-colors hover:border-gold hover:text-gold-soft"
+                >
+                  {s.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </PageHero>
 
-        <div className="relative h-full flex flex-col items-center justify-center px-4 md:px-8 max-w-7xl mx-auto">
-          <motion.div
-            className="text-center space-y-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight">
-              Our <span className="text-accent">Services</span>
-            </h1>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              Comprehensive creative solutions for all your visual storytelling needs
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Services Grid */}
-      <section className="py-20 px-4 md:px-8 bg-background">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={service.id}
-                className="group bg-white rounded overflow-hidden border border-border hover:border-accent hover:shadow-xl transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                {/* Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={service.image || "/placeholder.svg"}
-                    alt={service.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <service.icon className="w-8 h-8 text-accent" />
-                    <h3 className="text-xl font-bold text-foreground">{service.title}</h3>
+      {/* Service chapters */}
+      <section className="bg-ivory" aria-label="Our services">
+        {services.map((s, i) => {
+          const flip = i % 2 === 1
+          return (
+            <article
+              key={s.slug}
+              id={s.slug}
+              className="border-b border-line-light last:border-b-0"
+              aria-labelledby={`${s.slug}-title`}
+            >
+              <div className="container-x grid gap-10 py-16 md:py-24 lg:grid-cols-12 lg:items-center lg:gap-16">
+                <Reveal className={`lg:col-span-7 ${flip ? "lg:order-2" : ""}`}>
+                  <div className="relative aspect-[4/3] overflow-hidden bg-ink lg:aspect-[5/4]">
+                    <Image
+                      src={s.image}
+                      alt={s.imageAlt}
+                      fill
+                      sizes="(min-width: 1024px) 55vw, 100vw"
+                      className="object-cover transition-transform duration-[1.6s] ease-[var(--ease-cinematic)] hover:scale-[1.03]"
+                    />
                   </div>
+                </Reveal>
 
-                  <p className="text-gray-600 text-sm mb-4">{service.description}</p>
-
-                  <div className="space-y-2 mb-6">
-                    {service.features.map((feature) => (
-                      <div key={feature} className="flex items-center gap-2 text-sm text-gray-600">
-                        <Check className="w-4 h-4 text-accent flex-shrink-0" />
-                        {feature}
-                      </div>
+                <Reveal className={`lg:col-span-5 ${flip ? "lg:order-1" : ""}`} delay={0.1}>
+                  <p className="eyebrow text-gold-deep">
+                    {String(i + 1).padStart(2, "0")} — Service
+                  </p>
+                  <h2 id={`${s.slug}-title`} className="display-md mt-5 text-ink">
+                    {s.title}
+                  </h2>
+                  <p className="mt-5 text-base leading-relaxed text-stone md:text-lg">{s.description}.</p>
+                  <ul className="mt-8 grid border-t border-line-light sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                    {s.features.map((f) => (
+                      <li
+                        key={f}
+                        className="flex items-center gap-3 border-b border-line-light py-3.5 text-[0.95rem] text-ink sm:odd:pr-4"
+                      >
+                        <span aria-hidden="true" className="size-1.5 shrink-0 bg-gold" />
+                        {f}
+                      </li>
                     ))}
-                  </div>
-
+                  </ul>
                   <Link
-                    href="/contact"
-                    className="inline-block px-4 py-2 bg-accent text-accent-foreground rounded hover:opacity-90 transition-opacity text-sm font-semibold"
+                    href={`/contact?service=${encodeURIComponent(s.formValue)}`}
+                    className="btn btn-ink mt-10"
                   >
-                    Learn More
+                    Enquire about {s.title.split(" &")[0]}
+                    <ArrowRight aria-hidden="true" className="size-4" />
                   </Link>
-                </div>
-              </motion.div>
+                </Reveal>
+              </div>
+            </article>
+          )
+        })}
+      </section>
+
+      {/* Process */}
+      <section className="section-y bg-ink text-paper" aria-labelledby="process-heading">
+        <div className="container-x">
+          <Reveal className="max-w-2xl">
+            <p className="eyebrow text-gold-soft">How we work</p>
+            <h2 id="process-heading" className="display-lg mt-5">
+              From first conversation to final frame.
+            </h2>
+          </Reveal>
+          <ol className="mt-16 grid gap-px bg-line-dark sm:grid-cols-2 lg:mt-20 lg:grid-cols-4">
+            {process.map((p, i) => (
+              <Reveal as="li" key={p.step} delay={i * 0.08} className="bg-ink p-0 pb-10 pt-8 sm:p-8 lg:p-10">
+                <span className="font-display text-6xl leading-none text-gold/80">{p.step}</span>
+                <h3 className="mt-8 font-display text-3xl">{p.title}</h3>
+                <p className="mt-3 text-[0.95rem] leading-relaxed text-white/65">{p.description}</p>
+              </Reveal>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 
-      {/* Service Process */}
-      <section className="py-20 px-4 md:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-accent font-semibold text-sm tracking-wider mb-2">HOW WE WORK</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-              Our <span className="text-accent">Process</span>
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-4 gap-6 md:gap-4">
-            {[
-              {
-                step: "01",
-                title: "Consultation",
-                description: "We discuss your vision, goals, and requirements to understand your project",
-              },
-              {
-                step: "02",
-                title: "Planning",
-                description: "Detailed planning and strategy to ensure every detail is covered",
-              },
-              {
-                step: "03",
-                title: "Production",
-                description: "Professional execution with cutting-edge equipment and techniques",
-              },
-              {
-                step: "04",
-                title: "Delivery",
-                description: "Polished final product delivered on time with post-production excellence",
-              },
-            ].map((item, index) => (
-              <motion.div
-                key={item.step}
-                className="text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="mb-4 inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-accent/20 to-accent/10 rounded-full border-2 border-accent">
-                  <span className="text-2xl font-bold text-accent">{item.step}</span>
-                </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
-                <p className="text-gray-600 text-sm">{item.description}</p>
-              </motion.div>
-            ))}
+      {/* Packages */}
+      <section className="section-y bg-paper" aria-labelledby="packages-heading">
+        <div className="container-x">
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
+            <Reveal className="lg:col-span-7">
+              <p className="eyebrow text-gold-deep">Packages</p>
+              <h2 id="packages-heading" className="display-lg mt-5 text-ink">
+                Flexible packages, tailored to you.
+              </h2>
+            </Reveal>
+            <Reveal className="lg:col-span-5" delay={0.1}>
+              <p className="text-base leading-relaxed text-stone md:text-lg">
+                Custom pricing available for all services. Tell us about your project and we&apos;ll send a quote
+                that fits.
+              </p>
+            </Reveal>
           </div>
-        </div>
-      </section>
 
-      {/* Service Packages */}
-      <section className="py-20 px-4 md:px-8 bg-background">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-accent font-semibold text-sm tracking-wider mb-2">PRICING</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-              Flexible <span className="text-accent">Packages</span>
-            </h2>
-            <p className="text-lg text-gray-600 mt-4">Custom pricing available for all services</p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Starter",
-                description: "Perfect for small projects",
-                price: "Contact",
-                features: ["Basic package", "1-2 hours", "Standard editing", "Digital delivery"],
-              },
-              {
-                name: "Professional",
-                description: "Most popular choice",
-                price: "Contact",
-                features: ["Full day coverage", "Advanced editing", "Multiple angles", "Fast turnaround"],
-                featured: true,
-              },
-              {
-                name: "Premium",
-                description: "Complete solution",
-                price: "Contact",
-                features: ["Full event coverage", "4K production", "Drone footage", "Premium editing"],
-              },
-            ].map((pkg, index) => (
-              <motion.div
+          <div className="mt-14 grid gap-6 lg:mt-20 lg:grid-cols-3">
+            {packages.map((pkg, i) => (
+              <Reveal
                 key={pkg.name}
-                className={`p-8 rounded border-2 transition-all duration-300 ${
-                  pkg.featured
-                    ? "border-accent bg-gradient-to-br from-accent/10 to-transparent scale-105"
-                    : "border-border hover:border-accent"
+                delay={i * 0.08}
+                className={`flex min-w-0 flex-col p-6 sm:p-8 md:p-10 ${
+                  pkg.featured ? "bg-ink text-paper" : "border border-line-light bg-ivory text-ink"
                 }`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
               >
-                {pkg.featured && (
-                  <div className="mb-4 inline-block px-3 py-1 bg-accent text-accent-foreground rounded-full text-xs font-semibold">
-                    RECOMMENDED
-                  </div>
-                )}
-
-                <h3 className="text-2xl font-bold text-foreground mb-1">{pkg.name}</h3>
-                <p className="text-gray-600 text-sm mb-4">{pkg.description}</p>
-                <p className="text-3xl font-bold text-accent mb-6">{pkg.price}</p>
-
-                <ul className="space-y-3 mb-8">
-                  {pkg.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-gray-600 text-sm">
-                      <Check className="w-4 h-4 text-accent flex-shrink-0" />
-                      {feature}
+                <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
+                  <h3 className="font-display text-4xl">{pkg.name}</h3>
+                  {pkg.featured && <span className="eyebrow mt-2 bg-gold px-3 py-1.5 text-ink">Recommended</span>}
+                </div>
+                <p className={`mt-2 text-sm ${pkg.featured ? "text-white/65" : "text-stone"}`}>{pkg.description}</p>
+                <p className={`eyebrow mt-8 ${pkg.featured ? "text-gold-soft" : "text-gold-deep"}`}>Price on request</p>
+                <ul className={`mt-6 flex-1 border-t ${pkg.featured ? "border-line-dark" : "border-line-light"}`}>
+                  {pkg.features.map((f) => (
+                    <li
+                      key={f}
+                      className={`flex items-center gap-3 border-b py-3.5 text-[0.95rem] ${
+                        pkg.featured ? "border-line-dark" : "border-line-light"
+                      }`}
+                    >
+                      <Check aria-hidden="true" className={`size-4 ${pkg.featured ? "text-gold" : "text-gold-deep"}`} />
+                      {f}
                     </li>
                   ))}
                 </ul>
-
-                <Link
-                  href="/contact"
-                  className={`block text-center px-6 py-3 rounded font-semibold transition-all ${
-                    pkg.featured
-                      ? "bg-accent text-accent-foreground hover:opacity-90"
-                      : "bg-foreground text-white hover:opacity-90"
-                  }`}
-                >
+                <Link href="/contact" className={`btn mt-10 ${pkg.featured ? "btn-gold" : "btn-ink"}`}>
                   Get Started
                 </Link>
-              </motion.div>
+              </Reveal>
             ))}
+          </div>
+
+          {/* Why our services */}
+          <div className="mt-24 grid gap-10 border-t border-line-light pt-16 lg:grid-cols-12">
+            <Reveal className="lg:col-span-4">
+              <h2 className="display-sm text-ink">Why choose our services?</h2>
+            </Reveal>
+            <ul className="grid gap-x-10 sm:grid-cols-2 lg:col-span-8">
+              {reasons.map((r, i) => (
+                <Reveal
+                  as="li"
+                  key={r}
+                  delay={(i % 2) * 0.06}
+                  className="flex items-start gap-4 border-b border-line-light py-5 text-base text-ink"
+                >
+                  <Check aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-gold-deep" />
+                  {r}
+                </Reveal>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Services */}
-      <section className="py-20 px-4 md:px-8 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-              Why Choose Our <span className="text-accent">Services?</span>
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              "Professional team with years of experience",
-              "State-of-the-art equipment and technology",
-              "Custom solutions tailored to your needs",
-              "Fast turnaround without compromising quality",
-              "Transparent pricing and clear communication",
-              "Dedicated support throughout your project",
-            ].map((reason, index) => (
-              <motion.div
-                key={index}
-                className="flex gap-4 items-start"
-                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="w-6 h-6 bg-accent rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <Check className="w-4 h-4 text-white" />
-                </div>
-                <p className="text-lg text-gray-600">{reason}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 px-4 md:px-8 bg-foreground text-white">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Ready to Start Your <span className="text-accent">Project?</span>
-            </h2>
-            <p className="text-lg text-gray-300 mb-8">
-              Contact us today for a consultation and let's bring your vision to life.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="px-8 py-3 bg-accent text-accent-foreground rounded hover:opacity-90 transition-opacity font-semibold"
-              >
-                Get in Touch
-              </Link>
-              <a
-                href="https://wa.me/2347084036843"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-3 border-2 border-accent text-accent rounded hover:bg-accent hover:text-accent-foreground transition-all font-semibold"
-              >
-                Chat on WhatsApp
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <CTASection
+        title={
+          <>
+            Ready to start your <em className="italic text-gold-soft">project?</em>
+          </>
+        }
+        text="Contact us today for a consultation and let's bring your vision to life."
+        primary={{ label: "Get in Touch", href: "/contact" }}
+      />
     </main>
   )
 }

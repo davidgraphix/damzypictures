@@ -1,109 +1,105 @@
 import Link from "next/link"
-import { Instagram, MessageCircle, Mail, Phone } from "lucide-react"
+import Image from "next/image"
+import { Instagram, MessageCircle, Mail, Phone, ArrowUp } from "lucide-react"
+import { contact, navItems, services } from "@/lib/site"
 
 export default function Footer() {
   return (
-    <footer className="bg-foreground text-white py-16 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+    <footer className="bg-ink text-paper">
+      <div className="container-x pb-10 pt-20 md:pt-24">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-14 md:grid-cols-12 md:gap-10">
           {/* Brand */}
-          <div>
-            <h3 className="text-2xl font-bold mb-2">
-              <span className="text-accent">Damzy</span>Pictures
-            </h3>
-            <p className="text-gray-400 text-sm mb-4">Capturing moments with authenticity, clarity & class</p>
-            <p className="text-accent text-xs font-medium">Available for Travels</p>
+          <div className="col-span-2 md:col-span-12 lg:col-span-4">
+            <Image src="/logo1.PNG" alt="DamzyPictures" width={500} height={500} sizes="96px" className="-ml-2 h-24 w-24" />
+            <p className="mt-6 max-w-xs font-display text-2xl leading-snug text-white/90">
+              Capturing moments with authenticity, clarity &amp; class.
+            </p>
+            <p className="eyebrow mt-6 text-gold-soft">Available for travels</p>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li>
-                <Link href="/" className="hover:text-accent transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:text-accent transition-colors">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="hover:text-accent transition-colors">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/portfolio" className="hover:text-accent transition-colors">
-                  Portfolio
-                </Link>
-              </li>
+          {/* Explore */}
+          <div className="md:col-span-4 lg:col-span-2">
+            <h2 className="eyebrow text-mist">Explore</h2>
+            <ul className="mt-6 space-y-1 text-sm">
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="link-line inline-block py-1.5 text-white/80 hover:text-paper">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div>
-            <h4 className="font-semibold mb-4">Contact</h4>
-            <ul className="space-y-3 text-sm text-gray-400">
-              <li className="flex items-center gap-2">
-                <Phone size={16} className="text-accent" />
-                <a href="tel:+2347084036843" className="hover:text-accent transition-colors">
-                  +234 708 403 6843
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone size={16} className="text-accent" />
-                <a href="tel:+2348118072288" className="hover:text-accent transition-colors">
-                  +234 811 807 2288
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail size={16} className="text-accent" />
-                <a href="mailto:damzypictures@gmail.com" className="hover:text-accent transition-colors">
-                  damzypictures@gmail.com
-                </a>
-              </li>
+          {/* Services */}
+          <div className="md:col-span-4 lg:col-span-3">
+            <h2 className="eyebrow text-mist">Services</h2>
+            <ul className="mt-6 space-y-1 text-sm">
+              {services.map((s) => (
+                <li key={s.slug}>
+                  <Link href={`/services#${s.slug}`} className="link-line inline-block py-1.5 text-white/80 hover:text-paper">
+                    {s.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Social Links */}
-          <div>
-            <h4 className="font-semibold mb-4">Follow Us</h4>
-            <div className="flex gap-4">
-              <a
-                href="https://www.instagram.com/damzy_pictures?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-accent hover:bg-opacity-90 text-accent-foreground p-3 rounded transition-all"
-              >
-                <Instagram size={20} />
-              </a>
-              <a
-                href="https://wa.me/2347084036843"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-accent hover:bg-opacity-90 text-accent-foreground p-3 rounded transition-all"
-              >
-                <MessageCircle size={20} />
-              </a>
-               <a
-                href="
-2. https://www.instagram.com/damzyshotit?igsh=ZnlxYXFqNDluc3c2&utm_source=qr"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-accent hover:bg-opacity-90 text-accent-foreground p-3 rounded transition-all"
-              >
-                <Instagram size={20} />
-              </a>
-            </div>
+          {/* Contact */}
+          <div className="col-span-2 md:col-span-4 lg:col-span-3">
+            <h2 className="eyebrow text-mist">Contact</h2>
+            <ul className="mt-6 space-y-1 text-sm">
+              {contact.phones.map((p) => (
+                <li key={p.href}>
+                  <a href={p.href} className="inline-flex items-center gap-3 py-1.5 text-white/80 hover:text-gold-soft">
+                    <Phone aria-hidden="true" className="size-4 text-gold" />
+                    {p.display}
+                  </a>
+                </li>
+              ))}
+              <li>
+                <a
+                  href={contact.emailHref}
+                  className="inline-flex items-center gap-3 break-all py-1.5 text-white/80 hover:text-gold-soft"
+                >
+                  <Mail aria-hidden="true" className="size-4 shrink-0 text-gold" />
+                  {contact.email}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={contact.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 py-1.5 text-white/80 hover:text-gold-soft"
+                >
+                  <MessageCircle aria-hidden="true" className="size-4 text-gold" />
+                  WhatsApp
+                </a>
+              </li>
+              {contact.instagram.map((ig) => (
+                <li key={ig.href}>
+                  <a
+                    href={ig.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 py-1.5 text-white/80 hover:text-gold-soft"
+                  >
+                    <Instagram aria-hidden="true" className="size-4 text-gold" />
+                    {ig.handle}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-700 pt-8">
-          <p className="text-center text-sm text-gray-400">
-            © {new Date().getFullYear()} DamzyPictures. All rights reserved.
-          </p>
+        <div className="mt-20 flex flex-col-reverse gap-6 border-t border-line-dark pt-8 text-xs text-mist sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} DamzyPictures. All rights reserved.</p>
+          <p className="sm:text-center">Lagos, Nigeria · Nationwide &amp; international</p>
+          <a href="#main" className="inline-flex min-h-11 items-center gap-2 uppercase tracking-[0.2em] hover:text-paper">
+            Back to top <ArrowUp aria-hidden="true" className="size-3.5" />
+          </a>
         </div>
       </div>
     </footer>

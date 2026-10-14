@@ -1,427 +1,192 @@
-"use client";
+import type { Metadata } from "next"
+import Image from "next/image"
+import PageHero from "@/components/ui/page-hero"
+import Reveal from "@/components/ui/reveal"
+import CTASection from "@/components/ui/cta-section"
+import DirectorBio from "@/components/about/director-bio"
+import { coreValues, pageMetadata } from "@/lib/site"
 
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
+export const metadata: Metadata = pageMetadata({
+  title: "About",
+  description:
+    "Damzy Pictures is a creative media and visual storytelling brand dedicated to capturing moments with authenticity, clarity, and class.",
+  path: "/about",
+  shareDescription: "A journey of capturing authentic moments with clarity and class.",
+})
+
+const team = [
+  "Professional photographers and videographers",
+  "Advanced editing and post-production team",
+  "Live streaming and broadcasting specialists",
+  "Content strategy and creative directors",
+]
 
 export default function AboutPage() {
-  const values = [
-    {
-      title: "Authenticity",
-      description:
-        "Genuine storytelling that captures real emotions and moments",
-    },
-    {
-      title: "Clarity",
-      description: "Crystal-clear visuals and communication in every frame",
-    },
-    {
-      title: "Excellence",
-      description: "Unwavering commitment to quality in all our work",
-    },
-    {
-      title: "Creativity",
-      description: "Innovative approaches to every project we undertake",
-    },
-  ];
-
-  ("use client");
-
-  function AboutText() {
-    const [expanded, setExpanded] = useState(false);
-
-    return (
-      <p className="text-lg text-gray-600 leading-relaxed">
-        Ayeni Damilare Joshua., fondly known as Damzy, is a visionary creative and
-        passionate storyteller committed to capturing life as it happens real,
-        emotional, meaningful, and unforgettable. As the Creative Director of
-        DamzyPictures, he leads with purpose, excellence, and a deep belief that
-        every moment has a story worth preserving.
-        {/* Hidden / expandable content */}
-        {expanded && (
-          <span className="block mt-4">
-            Driven by creativity and guided by discipline, Ayeni Damilare has
-            built a brand that is committed to excellence, professionalism, and
-            creativity in photography, videography, & event documentation as
-            well as trust reflects dedication, quality, and a brand. His work
-            goes beyond holding a camera; it is about creating experiences,
-            documenting journeys, celebrating people, and building memories that
-            stand the test of time. From intimate celebrations to large events,
-            lifestyle shoots, and corporate projects, he approaches every story
-            with intention, creativity, and heart. <br />  <br />
-             Ayeni Damilare is a student
-            of the University of Lagos, under the Department of Employment
-            Relations and Human Resource Management, where his academic journey
-            continues to shape his leadership, strategic thinking,
-            professionalism, and strong understanding of business and brand
-            excellence. These qualities reflect in how he manages projects,
-            leads his team, and delivers value to every client. <br /> <br /> With a clear
-            vision to inspire, impact, and redefine visual storytelling, Ayeni
-            Damilare remains committed to growth, excellence, and creating
-            timeless work through Damzy Pictures — one moment, one frame, one
-            story at a time.
-          </span>
-        )}
-        {/* Toggle button */}
-        <button
-          onClick={() => setExpanded(!expanded)}
-          className="mt-4 block text-primary font-medium hover:underline"
-        >
-          {expanded ? "Show less" : "Read more"}
-        </button>
-      </p>
-    );
-  }
-
   return (
-    <main className="pt-20">
-      {/* Hero Section */}
-      <section className="relative h-96 md:h-screen w-full overflow-hidden bg-foreground pt-20">
-        <Image
-          src="/bg4.jpeg"
-          alt="About DamzyPictures"
-          fill
-          className="object-cover opacity-20"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-foreground via-foreground/50 to-transparent" />
+    <main>
+      <PageHero
+        eyebrow="Our story"
+        title={
+          <>
+            Every moment has a story <em className="italic text-gold-soft">worth preserving.</em>
+          </>
+        }
+        intro="A journey of capturing authentic moments with clarity and class."
+        image="/portfolio-wedding-elegant.jpg"
+        imageAlt="Bride in a lace gown and groom in a tan suit posing against a painted backdrop"
+        position="center 28%"
+      />
 
-        <div className="relative h-full flex flex-col items-center justify-center px-4 md:px-8 max-w-7xl mx-auto">
-          <motion.div
-            className="text-center space-y-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight">
-              Our <span className="text-accent">Story</span>
-            </h1>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              A journey of capturing authentic moments with clarity and class
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Brand Story */}
-      <section className="py-20 px-4 md:px-8 bg-background">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            className="space-y-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <div>
-              <p className="text-accent font-semibold text-sm tracking-wider mb-4">
-                WHO WE ARE
-              </p>
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                Damzy Pictures: Creative Visual Storytelling
+      {/* Who we are */}
+      <section className="section-y bg-ivory" aria-labelledby="who-heading">
+        <div className="container-x grid gap-12 lg:grid-cols-12 lg:gap-10">
+          <Reveal className="lg:col-span-3">
+            <p className="eyebrow text-gold-deep">Who we are</p>
+          </Reveal>
+          <div className="lg:col-span-9">
+            <Reveal>
+              <h2 id="who-heading" className="display-md text-ink">
+                Damzy Pictures is a creative media and visual storytelling brand dedicated to capturing moments with{" "}
+                <em className="italic text-gold-deep">authenticity, clarity, and class.</em>
               </h2>
-
-              <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                Damzy Pictures is a creative media and visual storytelling brand
-                dedicated to capturing moments with authenticity, clarity, and
-                class. We specialize in photography, videography, live
-                streaming/broadcasting, event documentation, and digital content
-                creation.
-              </p>
-
-              <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                Founded with a passion for visual excellence, we believe that
-                every moment deserves to be captured with intention and
-                artistry. Our team combines technical expertise with creative
-                vision to deliver content that tells your story in the most
-                compelling way possible.
-              </p>
-
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Whether you're planning a wedding, launching a brand, hosting a
-                corporate event, or creating digital content, we bring
-                professionalism, creativity, and dedication to every project.
-              </p>
+            </Reveal>
+            <div className="mt-12 grid gap-8 md:grid-cols-2 md:gap-12">
+              <Reveal delay={0.1}>
+                <p className="text-base leading-relaxed text-stone md:text-lg">
+                  The brand specializes in photography, videography, live streaming, broadcasting, event documentation,
+                  and digital content creation. We believe that every moment deserves to be captured with intention and
+                  artistry.
+                </p>
+              </Reveal>
+              <Reveal delay={0.2}>
+                <p className="text-base leading-relaxed text-stone md:text-lg">
+                  Whether you&apos;re planning a wedding, launching a brand, hosting a corporate event, or creating
+                  digital content, we bring professionalism, creativity, and dedication to every project.
+                </p>
+              </Reveal>
             </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Mission, Vision, Values */}
-      <section className="py-20 px-4 md:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-              Our <span className="text-accent">Mission, Vision & Values</span>
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            {/* Mission */}
-            <motion.div
-              className="p-8 bg-gradient-to-br from-accent/5 to-transparent border border-accent/20 rounded"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-2xl font-bold text-foreground mb-4">
-                Our Mission
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                To deliver visually compelling stories that connect emotionally
-                and leave lasting impressions on audiences through professional,
-                creative, and reliable media services.
-              </p>
-            </motion.div>
-
-            {/* Vision */}
-            <motion.div
-              className="p-8 bg-gradient-to-br from-accent/5 to-transparent border border-accent/20 rounded"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-2xl font-bold text-foreground mb-4">
-                Our Vision
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                To be the preferred creative media partner for individuals and
-                brands seeking to tell their stories with authenticity, clarity,
-                and class.
-              </p>
-            </motion.div>
-
-            {/* Values */}
-            <motion.div
-              className="p-8 bg-gradient-to-br from-accent/5 to-transparent border border-accent/20 rounded"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-2xl font-bold text-foreground mb-4">
-                Our Values
-              </h3>
-              <ul className="space-y-2 text-gray-600">
-                <li>✓ Authenticity in storytelling</li>
-                <li>✓ Clarity in execution</li>
-                <li>✓ Excellence in quality</li>
-                <li>✓ Creativity & innovation</li>
-              </ul>
-            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Core Values Details */}
-      <section className="py-20 px-4 md:px-8 bg-background">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-accent font-semibold text-sm tracking-wider mb-2">
-              WHAT GUIDES US
+      {/* Mission & vision */}
+      <section className="bg-ink text-paper" aria-label="Mission and vision">
+        <div className="container-x grid md:grid-cols-2">
+          <Reveal className="border-b border-line-dark py-16 md:border-b-0 md:border-r md:py-24 md:pr-12 lg:py-32 lg:pr-20">
+            <p className="eyebrow text-gold-soft">Our mission</p>
+            <p className="display-sm mt-8">
+              To deliver high-quality visual content that preserves memories, elevates brands, and tells powerful
+              stories with creativity and precision.
             </p>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-              Our Core Values
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-12">
-            {values.map((value, index) => (
-              <motion.div
-                key={value.title}
-                className="flex gap-6 items-start"
-                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold">
-                  {index + 1}
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-foreground mb-2">
-                    {value.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {value.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          </Reveal>
+          <Reveal className="py-16 md:py-24 md:pl-12 lg:py-32 lg:pl-20" delay={0.1}>
+            <p className="eyebrow text-gold-soft">Our vision</p>
+            <p className="display-sm mt-8">
+              To become a leading creative media brand recognized for excellence, innovation, and impactful storytelling
+              across Africa and beyond.
+            </p>
+          </Reveal>
         </div>
       </section>
 
-      {/* Directr Highlights */}
-      <section className="py-20 px-4 md:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            className="grid md:grid-cols-2 gap-12 items-center"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <motion.div
-              className="relative h-96 md:h-full min-h-96 rounded overflow-hidden order-2 md:order-1"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
+      {/* Core values */}
+      <section className="section-y bg-paper" aria-labelledby="values-heading">
+        <div className="container-x grid gap-12 lg:grid-cols-12 lg:gap-10">
+          <Reveal className="lg:col-span-4">
+            <p className="eyebrow text-gold-deep">What guides us</p>
+            <h2 id="values-heading" className="display-lg mt-5 text-ink">
+              Our core values
+            </h2>
+          </Reveal>
+          <ol className="border-t border-line-light lg:col-span-8">
+            {coreValues.map((v, i) => (
+              <Reveal
+                as="li"
+                key={v.title}
+                delay={i * 0.05}
+                className="grid grid-cols-[3rem_1fr] gap-x-4 gap-y-2 border-b border-line-light py-8 md:grid-cols-[4rem_minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-baseline md:gap-x-8"
+              >
+                <span className="eyebrow text-gold-deep">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="font-display text-3xl leading-tight text-ink md:text-4xl">{v.title}</h3>
+                <p className="col-start-2 text-base leading-relaxed text-stone md:col-start-3">{v.description}</p>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* Creative director */}
+      <section className="section-y bg-ivory" aria-labelledby="director-heading">
+        <div className="container-x grid gap-12 md:grid-cols-12 md:gap-10 lg:gap-16">
+          <Reveal className="md:col-span-5">
+            <div className="relative aspect-[4/5] overflow-hidden bg-ink md:sticky md:top-[calc(var(--nav-height)+2rem)]">
               <Image
                 src="/damzy.jpeg"
-                alt="Damzy Pictures Creative Director"
-               width={500}
-               height={200}
+                alt="Ayeni Damilare Joshua (Damzy), Creative Director of DamzyPictures"
+                fill
+                sizes="(min-width: 768px) 40vw, 100vw"
                 className="object-cover"
               />
-            </motion.div>
-
-            <motion.div
-              className="space-y-6 order-1 md:order-2"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <div>
-                <p className="text-accent font-semibold text-sm tracking-wider mb-2">
-                  Damzy Pictures Creative Director
-                </p>
-                <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-                  Visionary creative and passionate{" "}
-                  <span className="text-accent">storyteller</span>
-                </h2>
-              </div>
-              <AboutText />
-            </motion.div>
-          </motion.div>
-           <br /> <br /> <br /> <br /> <br />
+            </div>
+          </Reveal>
+          <Reveal className="md:col-span-7 md:pt-8" delay={0.1}>
+            <p className="eyebrow text-gold-deep">Damzy Pictures Creative Director</p>
+            <h2 id="director-heading" className="display-md mt-5 text-ink">
+              Visionary creative and passionate <em className="italic text-gold-deep">storyteller.</em>
+            </h2>
+            <div className="mt-8">
+              <DirectorBio />
+            </div>
+          </Reveal>
         </div>
+      </section>
 
-        {/* Team Highlights */}
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            className="grid md:grid-cols-2 gap-12 items-center"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <motion.div
-              className="relative h-96 md:h-full min-h-96 rounded overflow-hidden order-2 md:order-1"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
+      {/* Team */}
+      <section className="section-y bg-paper" aria-labelledby="team-heading">
+        <div className="container-x grid gap-12 md:grid-cols-12 md:items-center md:gap-10 lg:gap-16">
+          <Reveal className="md:order-2 md:col-span-6 lg:col-span-7">
+            <div className="relative aspect-[15/8] overflow-hidden bg-paper">
               <Image
                 src="/damzy-team.png"
-                alt="Team at work"
+                alt="Three members of the DamzyPictures team"
                 fill
-                className="object-cover"
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover object-[center_53%]"
               />
-            </motion.div>
-
-            <motion.div
-              className="space-y-6 order-1 md:order-2"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <div>
-                <p className="text-accent font-semibold text-sm tracking-wider mb-2">
-                  OUR TEAM
-                </p>
-                <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-                  Creative Professionals Dedicated to{" "}
-                  <span className="text-accent">Excellence</span>
-                </h2>
-              </div>
-
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Our team consists of experienced photographers, videographers,
-                and content creators who are passionate about visual
-                storytelling. With years of experience across various
-                industries, we understand what it takes to deliver exceptional
-                results.
-              </p>
-
-              <ul className="space-y-3">
-                {[
-                  "Professional photographers and videographers",
-                  "Advanced editing and post-production team",
-                  "Live streaming and broadcasting specialists",
-                  "Content strategy and creative directors",
-                ].map((item, index) => (
-                  <motion.li
-                    key={index}
-                    className="flex items-center gap-3 text-gray-600"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="w-2 h-2 bg-accent rounded-full" />
-                    {item}
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 px-4 md:px-8 bg-foreground text-white">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Ready to Tell Your <span className="text-accent">Story?</span>
-            </h2>
-            <p className="text-lg text-gray-300 mb-8">
-              Let's collaborate and create something extraordinary together.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="px-8 py-3 bg-accent text-accent-foreground rounded hover:opacity-90 transition-opacity font-semibold"
-              >
-                Get in Touch
-              </Link>
-              <Link
-                href="/portfolio"
-                className="px-8 py-3 border-2 border-accent text-accent rounded hover:bg-accent hover:text-accent-foreground transition-all font-semibold"
-              >
-                View Our Work
-              </Link>
             </div>
-          </motion.div>
+          </Reveal>
+          <Reveal className="md:order-1 md:col-span-6 lg:col-span-5" delay={0.1}>
+            <p className="eyebrow text-gold-deep">Our team</p>
+            <h2 id="team-heading" className="display-md mt-5 text-ink">
+              Creative professionals dedicated to excellence.
+            </h2>
+            <p className="mt-6 text-base leading-relaxed text-stone md:text-lg">
+              Our team consists of experienced photographers, videographers, and content creators who are passionate
+              about visual storytelling. With years of experience across various industries, we understand what it
+              takes to deliver exceptional results.
+            </p>
+            <ul className="mt-8 border-t border-line-light">
+              {team.map((t) => (
+                <li key={t} className="flex items-center gap-4 border-b border-line-light py-4 text-ink">
+                  <span aria-hidden="true" className="size-1.5 shrink-0 bg-gold" />
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </div>
       </section>
+
+      <CTASection
+        title={
+          <>
+            Ready to tell your <em className="italic text-gold-soft">story?</em>
+          </>
+        }
+        text="Let's collaborate and create something extraordinary together."
+        primary={{ label: "Get in Touch", href: "/contact" }}
+        image="/portfolio-wedding-reception.jpg"
+      />
     </main>
-  );
+  )
 }

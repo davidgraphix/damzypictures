@@ -1,48 +1,68 @@
 import type React from "react"
-import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import type { Metadata, Viewport } from "next"
+import { Geist, Geist_Mono, Cormorant_Garamond } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
+import { SITE_URL, contact, ogImage } from "@/lib/site"
 import "./globals.css"
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" })
+const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" })
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
+  display: "swap",
+})
+
+const description =
+  "Capturing moments with authenticity, clarity & class. Professional photography, videography, live streaming, and multimedia content creation."
 
 export const metadata: Metadata = {
-  title: "DamzyPictures | Premium Photography & Videography",
-  description:
-    "Capturing moments with authenticity, clarity & class. Professional photography, videography, live streaming, and multimedia content creation.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "DamzyPictures | Premium Photography & Videography",
+    template: "%s | DamzyPictures",
+  },
+  description,
+  alternates: { canonical: "/" },
   openGraph: {
     title: "DamzyPictures | Premium Photography & Videography",
     description: "Capturing moments with authenticity, clarity & class.",
     type: "website",
+    url: "/",
+    siteName: "DamzyPictures",
+    locale: "en_NG",
+    images: [ogImage],
   },
-  icons: {
-    icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
-    apple: "/apple-icon.png",
+  twitter: {
+    card: "summary_large_image",
+    title: "DamzyPictures | Premium Photography & Videography",
+    description: "Capturing moments with authenticity, clarity & class.",
+    images: [ogImage.url],
   },
 }
 
-export const viewport = {
+export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: true,
-  themeColor: "#1a1a1a",
+  themeColor: "#0a0a0b",
+}
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "DamzyPictures",
+  url: SITE_URL,
+  logo: `${SITE_URL}/logo1.PNG`,
+  image: `${SITE_URL}${ogImage.url}`,
+  description,
+  email: contact.email,
+  telephone: contact.phones.map((p) => p.href.replace("tel:", "")),
+  areaServed: ["Lagos, Nigeria", "Nigeria"],
+  sameAs: contact.instagram.map((i) => i.href),
 }
 
 export default function RootLayout({
@@ -51,12 +71,25 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`font-sans antialiased`}>
+    <html lang="en" className={`${geist.variable} ${geistMono.variable} ${cormorant.variable}`}>
+      <body>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-gold focus:px-4 focus:py-3 focus:text-sm focus:text-ink"
+        >
+          Skip to content
+        </a>
         <Navigation />
-        {children}
+        <div id="main" tabIndex={-1} className="outline-none">
+          {children}
+        </div>
         <Footer />
         <Analytics />
+        <script
+          type="application/ld+json"
+          // Static, trusted JSON — no user input.
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
       </body>
     </html>
   )
